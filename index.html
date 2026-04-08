@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D 模型展示 - 30000_fix-v1</title>
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            background-color: #f0f2f5;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* 3D 畫布容器 */
+        model-viewer {
+            width: 80%;
+            height: 80%;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --poster-color: transparent;
+        }
+
+        /* 標題與說明 */
+        .info-panel {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .info-panel h1 {
+            font-size: 1.2rem;
+            color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        /* 載入進度條自定義 */
+        .progress-bar {
+            display: block;
+            width: 33%;
+            height: 10%;
+            max-height: 2px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 1px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .update-bar {
+            background-color: #a29bfe;
+            width: 0%;
+            height: 100%;
+            border-radius: 1px;
+            transition: width 0.3s;
+        }
+
+        #ar-button {
+            background-image: url(https://modelviewer.dev/assets/ic_view_in_ar_new_googblue_48dp.png);
+            background-repeat: no-repeat;
+            background-size: 20px 20px;
+            background-position: 12px 50%;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            bottom: 132px;
+            padding: 0px 16px 0px 40px;
+            font-family: Roboto Regular, Helvetica Neue, sans-serif;
+            font-size: 14px;
+            color:#4285f4;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 18px;
+            border: 1px solid #DADCE0;
+        }
+    </style>
+</head>
+<body>
+
+    <model-viewer 
+        src="30000_fix-v1.glb" 
+        poster="loading-poster.png"
+        alt="A 3D model of 30000_fix-v1" 
+        shadow-intensity="1" 
+        camera-controls 
+        auto-rotate 
+        ar
+        touch-action="pan
